@@ -1,0 +1,14 @@
+{
+  "name": "leetcode",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "vitest --run --reporter verbose"
+  },
+  "author": "HectorB",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "vitest": "^3.0.5"
+  }
+}
