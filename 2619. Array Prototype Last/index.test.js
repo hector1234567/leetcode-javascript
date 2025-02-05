@@ -1,6 +1,6 @@
 import { it, expect } from "vitest";
 
-import { last } from "./array_prototype_last";
+import { last } from "./index.js";
 
 // Input: nums = [null, {}, 3]
 // Output: 3
