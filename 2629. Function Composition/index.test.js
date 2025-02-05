@@ -17,3 +17,30 @@ it("The result is 65.", () => {
 
   expect(composition(functions, x)).toBe(65);
 });
+
+// Input: functions = [x => 10 * x, x => 10 * x, x => 10 * x], x = 1
+// Output: 1000
+// Explanation:
+// Evaluating from right to left ...
+// 10 * (1) = 10
+// 10 * (10) = 100
+// 10 * (100) = 1000
+
+it("The result is 1000.", () => {
+  const functions = [(x) => 10 * x, (x) => 10 * x, (x) => 10 * x];
+  const x = 1;
+
+  expect(composition(functions, x)).toBe(1000);
+});
+
+// Input: functions = [], x = 42
+// Output: 42
+// Explanation:
+// The composition of zero functions is the identity function
+
+it("The result is 42.", () => {
+  const functions = [];
+  const x = 42;
+
+  expect(composition(functions, x)).toBe(42);
+});
