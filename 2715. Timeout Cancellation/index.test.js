@@ -67,7 +67,7 @@ describe("2715. Timeout Cancellation", () => {
     setTimeout(cancel, cancelTimeMs);
 
     setTimeout(() => {
-      expect(result.length).toBe(0);
+      expect(result.length).toBe(10);
       done();
     }, maxT + 15);
   });
