@@ -52,15 +52,15 @@ describe("2725. Interval Cancellation", () => {
     expect(result).toStrictEqual([8]);
     vi.advanceTimersByTime(35);
     expect(result).toStrictEqual([8, 8]);
-    vi.advanceTimersByTime(35);
+    await vi.advanceTimersByTime(35);
     expect(result).toStrictEqual([8, 8, 8]);
-    vi.advanceTimersByTime(35);
+    await vi.advanceTimersByTime(35);
     expect(result).toStrictEqual([8, 8, 8, 8]);
-    vi.advanceTimersByTime(35);
+    await vi.advanceTimersByTime(35);
     expect(result).toStrictEqual([8, 8, 8, 8, 8]);
-    vi.advanceTimersByTime(35);
+    await vi.advanceTimersByTime(35);
     expect(result).toStrictEqual([8, 8, 8, 8, 8, 8]);
-    vi.advanceTimersByTime(35);
+    await vi.advanceTimersByTime(35);
     expect(result).toStrictEqual([8, 8, 8, 8, 8, 8]);
   });
 
@@ -87,7 +87,7 @@ describe("2725. Interval Cancellation", () => {
   // 5th fn call is at 120ms
   // 6th fn call is at 150ms
   // Cancelled at 165ms
-  test("Cancelled at 165ms", (done) => {
+  test("Cancelled at 165ms", async () => {
     const result = [];
 
     const fn = (x1, x2) => x1 * x2;
@@ -106,7 +106,7 @@ describe("2725. Interval Cancellation", () => {
     expect(result).toStrictEqual([10]);
     vi.advanceTimersByTime(30);
     expect(result).toStrictEqual([10, 10]);
-    vi.advanceTimersByTime(1000);
+    await vi.advanceTimersByTime(1000);
     expect(result).toStrictEqual([10, 10, 10, 10, 10, 10]);
   });
 
@@ -129,7 +129,7 @@ describe("2725. Interval Cancellation", () => {
   // 3rd fn call is at 100ms
   // 4th fn call is at 150ms
   // Cancelled at 180ms
-  test("Cancelled at 180ms", (done) => {
+  test("Cancelled at 180ms", async () => {
     const result = [];
 
     const fn = (x1, x2, x3) => x1 + x2 + x3;
@@ -148,7 +148,7 @@ describe("2725. Interval Cancellation", () => {
     expect(result).toStrictEqual([9]);
     vi.advanceTimersByTime(50);
     expect(result).toStrictEqual([9, 9]);
-    vi.advanceTimersByTime(1000);
+    await vi.advanceTimersByTime(1000);
     expect(result).toStrictEqual([9, 9, 9, 9]);
   });
 });

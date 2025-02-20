@@ -1,37 +1,52 @@
-import { it, expect } from "vitest";
+import { it, expect, describe, afterEach, beforeEach, vi } from "vitest";
 
 import { sleep } from "./index.js";
 
-// Input: millis = 100
-// Output: 100
-// Explanation: It should return a promise that resolves after 100ms.
-// let t = Date.now();
-// sleep(100).then(() => {
-//   console.log(Date.now() - t); // 100
-// });
+describe("2621. Sleep", () => {
+  beforeEach(() => {
+    vi.useFakeTimers();
+  });
 
-it("It should return a promise that resolves after 1000ms.", async () => {
-  let t = performance.now();
+  afterEach(() => {
+    vi.useRealTimers();
+  });
+  // Input: millis = 100
+  // Output: 100
+  // Explanation: It should return a promise that resolves after 100ms.
+  // let t = Date.now();
+  // sleep(100).then(() => {
+  //   console.log(Date.now() - t); // 100
+  // });
 
-  await sleep(1000);
+  it("It should return a promise that resolves after 1000ms.", async () => {
+    let result = 0;
 
-  const result = performance.now() - t;
+    sleep(1000).then(() => {
+      result = 1;
+    });
 
-  expect(result).toBeGreaterThanOrEqual(1000);
-  expect(result).toBeLessThanOrEqual(1020);
-});
+    expect(result).toBe(0);
+    vi.advanceTimersByTime(999);
+    expect(result).toBe(0);
+    await vi.advanceTimersByTime(1);
+    expect(result).toBe(1);
+  });
 
-// Input: millis = 200
-// Output: 200
-// Explanation: It should return a promise that resolves after 200ms.
+  // Input: millis = 200
+  // Output: 200
+  // Explanation: It should return a promise that resolves after 200ms.
 
-it("It should return a promise that resolves after 2000ms.", async () => {
-  let t = performance.now();
+  it("It should return a promise that resolves after 200ms.", async () => {
+    let result = 0;
 
-  await sleep(2000);
+    sleep(200).then(() => {
+      result = 1;
+    });
 
-  const result = performance.now() - t;
-
-  expect(result).toBeGreaterThanOrEqual(2000);
-  expect(result).toBeLessThanOrEqual(2020);
+    expect(result).toBe(0);
+    vi.advanceTimersByTime(199);
+    expect(result).toBe(0);
+    await vi.advanceTimersByTime(1);
+    expect(result).toBe(1);
+  });
 });

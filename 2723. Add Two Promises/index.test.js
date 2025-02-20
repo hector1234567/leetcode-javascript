@@ -24,11 +24,15 @@ describe("2723. Add Two Promises", () => {
   // Output: -2
   // Explanation: The two input promises resolve with the values of 10 and -12 respectively. The returned promise should resolve with a value of 10 + -12 = -2.
   test("The returned promise should resolve with a value of 10 + -12 = -2.", async () => {
-    const promise1 = new Promise((resolve) => setTimeout(() => resolve(2), 20));
-    const promise2 = new Promise((resolve) => setTimeout(() => resolve(5), 60));
+    const promise1 = new Promise((resolve) =>
+      setTimeout(() => resolve(10), 50)
+    );
+    const promise2 = new Promise((resolve) =>
+      setTimeout(() => resolve(-12), 30)
+    );
 
     const result = await addTwoPromises(promise1, promise2);
 
-    expect(result).toBe(7);
+    expect(result).toBe(-2);
   });
 });
