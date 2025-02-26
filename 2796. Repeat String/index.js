@@ -8,3 +8,8 @@ export const replicate = function (times) {
   }
   return response;
 };
+
+// OTRA FORMA
+// String.prototype.replicate = function (times: number) {
+//     return new Array(times).fill(this).join('');
+// };
