@@ -20,13 +20,3 @@ export const memoize = function(fn) {
         return result;
     }
 }
-
-// const sum = (a, b) => {
-//     console.log('ENTRA');
-//     return a + b
-// };
-// const memoizedSum = memoize(sum);
-
-// console.log(memoizedSum(2,2))
-// console.log(memoizedSum(2,2))
-// // console.log(memoizedSum(1,2))
